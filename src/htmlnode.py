@@ -12,12 +12,12 @@ class HTMLNode:
         res = []
         if self.props:
             for i, j in self.props.items():
-                res.append(f' {i}="{j}')
+                res.append(f' {i}="{j}"')
             
-            return res
+            return "".join(res)
         else:
             return ""
     
     def __repr__(self):
-        return f"HTMLNode({self.value}, {self.children}, {self.props})"
+        return f"HTMLNode({self.tag}, {self.value}, {self.children}, {self.props})"
 
