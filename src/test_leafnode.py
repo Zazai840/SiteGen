@@ -8,4 +8,4 @@ class TestLeafNode(unittest.TestCase):
     
     def test_repr(self):
         node = LeafNode("a", "Cool spot", {'key' : 'val'})
-        self.assertEqual(node.__repr__(), "LeafNode(a, Cool spot, {'key': 'val'})")
+        self.assertEqual(node.__repr__(), "LeafNode(a,Cool spot, {'key': 'val'})")
