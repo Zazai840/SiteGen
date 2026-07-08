@@ -17,6 +17,7 @@ def split_nodes_image(old_nodes: list[TextNode]) -> list[TextNode]:
             original_text = sections[1]
         if original_text:
             res_text_nodes.append(TextNode(original_text, TextType.TEXT))
+    return res_text_nodes
             
 def split_nodes_link(old_nodes: list[TextNode]) -> list[TextNode]:
     res_text_nodes = []
@@ -34,3 +35,4 @@ def split_nodes_link(old_nodes: list[TextNode]) -> list[TextNode]:
             original_text = sections[1]
         if original_text:
             res_text_nodes.append(TextNode(original_text, TextType.TEXT))
+    return res_text_nodes
