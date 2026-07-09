@@ -16,3 +16,19 @@ class TestTexttoTextNode(unittest.TestCase):
                                                                     TextNode(" and a ", TextType.TEXT),
                                                                     TextNode("link", TextType.LINK, "https://boot.dev"),
 ])
+        
+    def test_text_to_textnodes_plain_text(self):
+        sample_text = "This is plain text that is being tested"
+        self.assertListEqual(text_to_textnodes(sample_text), [TextNode("This is plain text that is being tested", TextType.TEXT)])
+
+    def test_text_to_textnodes_no_image(self):
+        sample_text = "This is text with **bold** text, _italic_ text, text that is `code` and also [links](https://youtube.com), but no images"
+        self.assertListEqual(text_to_textnodes(sample_text), [TextNode("This is text with ", TextType.TEXT), 
+                                                              TextNode("bold", TextType.BOLD), 
+                                                              TextNode(" text, ",TextType.TEXT), 
+                                                              TextNode("italic", TextType.ITALIC),
+                                                              TextNode(" text, text that is ", TextType.TEXT),
+                                                              TextNode("code", TextType.CODE),
+                                                              TextNode(" and also ", TextType.TEXT),
+                                                              TextNode("links", TextType.LINK, "https://youtube.com"),
+                                                              TextNode(", but no images", TextType.TEXT)])

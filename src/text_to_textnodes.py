@@ -1,6 +1,5 @@
 from textnode import *
 from split_nodes import *
-from inline_markdown import *
 
 
 def text_to_textnodes(text):
