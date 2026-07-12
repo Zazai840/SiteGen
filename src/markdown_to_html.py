@@ -33,7 +33,8 @@ def determine_heading_level(block):
 def create_html_node_from_block(block, type):
     if type == BlockType.CODE:
         code = block.replace("```", "")
-        code_node = LeafNode("code", code)
+        stripped_code = code.lstrip("\n")
+        code_node = LeafNode("code", stripped_code)
         return ParentNode("pre", [code_node])
     
     
@@ -60,7 +61,15 @@ def create_html_node_from_block(block, type):
         return ParentNode("blockquote", children)
 
     if type == BlockType.ORDERED_LIST:
-        
+        lines = block.split("\n")
+        list_items = []
+        for i in range(len(lines)):
+            item_text = line[2:0]
+            if lines[i].startwith(f"{i + 1}. "):
+                item_children = text_to_children(item_text)
+                list_items.append(ParentNode("li", item_children))
+        return ParentNode("ol", list_items)
+
 
     if type == BlockType.UNORDERED_LIST:
         lines = block.split("\n")
@@ -69,7 +78,6 @@ def create_html_node_from_block(block, type):
             item_text = line[2:]
             item_children = text_to_children(item_text)
             list_items.append(ParentNode("li", item_children))
-        
         return ParentNode("ul", list_items)
 
 
