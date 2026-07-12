@@ -1,9 +1,7 @@
 from textnode import TextNode
-
+from copy_to_destination import copy_to_destination
 def main():
-    node = TextNode("This is some anchor text", "link", "https://www.boot.dev")
-
-    print(node)
+    copy_to_destination("static", "public")
 
 if __name__ == "__main__":
     main()
