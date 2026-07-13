@@ -1,10 +1,15 @@
 import os
 import shutil
-
+import sys
 from copy_to_destination import copy_to_destination
 from generate_page import *
 
-dir_path_public = "./public"
+if sys.argv != "":
+    basepath = sys.argv
+else:
+    basepath = "/"
+
+dir_path_public = "./docs"
 dir_path_static = "./static"
 dir_path_content = "./content"
 template_path = "./template.html"
@@ -20,6 +25,7 @@ def main():
         dir_path_content,
         template_path,
         dir_path_public,
+        basepath
     )
 
 if __name__ == "__main__":
