@@ -1,5 +1,6 @@
 import os
 import shutil
+
 def copy_to_destination(source_directory, destination):
     if os.path.exists(destination):
         shutil.rmtree(destination)

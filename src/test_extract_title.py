@@ -7,4 +7,10 @@ class TestExtractTitle(unittest.TestCase):
         self.assertEqual(extract_title(text), "Cool title")
     
     def test_extract_no_heading(self):
-        
+        text = "this is text with no heading"
+        with self.assertRaises(Exception):
+            extract_title(text)
+    
+    def test_extract_heading_levels(self):
+        text = "### This is a h3 heading"
+        self.assertEqual(extract_title(text), "This is a h3 heading")
