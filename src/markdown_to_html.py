@@ -64,7 +64,7 @@ def create_html_node_from_block(block, type):
         lines = block.split("\n")
         list_items = []
         for i in range(len(lines)):
-            item_text = lines[i][2:]
+            item_text = lines[i][3:]
             if lines[i].startswith(f"{i + 1}. "):
                 item_children = text_to_children(item_text)
                 list_items.append(ParentNode("li", item_children))
