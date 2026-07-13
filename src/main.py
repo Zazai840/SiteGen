@@ -4,7 +4,7 @@ import sys
 from copy_to_destination import copy_to_destination
 from generate_page import *
 
-if sys.argv != []:
+if len(sys.argv) != 1:
     basepath = sys.argv[1]
 else:
     basepath = "/"
