@@ -17,8 +17,8 @@ def generate_page(from_path, template_path, dest_path, basepath):
     title = extract_title(page_content)
     content = template.replace("{{ Title }}", f"{title}")
     content = content.replace("{{ Content }}", f"{html_string}")
-    content = content.replace('href="/', f"href={basepath}")
-    content = content.replace('src="/', f"src={basepath}")
+    content = content.replace('href="/', f'href="{basepath}')
+    content = content.replace('src="/', f'src="{basepath}')
     
     dest_dir_path = os.path.dirname(dest_path)
     if dest_dir_path != "":
